@@ -22,7 +22,13 @@ class PythonOrgSearch(unittest.TestCase):
         elem.send_keys("pycon")
         elem.submit()
         self.assertNotIn("No results found.", driver.page_source)
-      
+        
+        for i in driver.requests:
+            print("/n %s",i)
+            
+            print(i.response)
+            a=a+1
+       
     def tearDown(self):
         self.driver.close()
 
